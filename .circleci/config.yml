@@ -1,0 +1,15 @@
+version: 2
+
+jobs:
+  misspell:
+    docker:
+      - image: nickg/misspell
+    steps:
+      - checkout
+      - run: misspell -error .
+
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - misspell
